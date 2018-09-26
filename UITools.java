@@ -20,7 +20,7 @@ import java.util.Map;
 public class UITools
     {
         /**
-         * A method to load FXML files using the Bootstrap3 CSS and the Wicked font.
+         * A method to load FXML files this will simply load a file into a new window
          * @param resource The file name that needs to be loaded
          * @param windowName The name the window should have
          * @return The stage with the scene of the fxml file.
@@ -56,7 +56,7 @@ public class UITools
         /**
          * Loads the next FXML into the current BorderPane.
          * @param resource The FXML FileName that needs to be loaded
-         * @param windowName The name the window should be given, if left empty it will be "Drawingo".
+         * @param windowName The name the window should be given, if left empty it will be "Java Application".
          */
         public void loadFXML(String resource, String windowName){
             loader = new FXMLLoader(getClass().getResource(resource));
@@ -159,7 +159,7 @@ public class UITools
          * Increase the height of a noe to a specific amount.
          * @param node The node that has the height change.
          * @param height The height that the value will be changed to from the current value.
-         * @return An JavaFX Animation, not automatically played.
+         * @return A JavaFX Animation, not automatically played.
          */
         public Animation increaseHeight(Rectangle node, double height){
             Timeline timeline = new Timeline();
