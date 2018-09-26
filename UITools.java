@@ -1,7 +1,5 @@
 package gui;
 
-import drawingo.game.GameRuntime;
-import drawingo.game.Player;
 import javafx.animation.*;
 import javafx.beans.property.*;
 import javafx.fxml.FXMLLoader;
@@ -36,7 +34,7 @@ public class UITools
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Font.loadFont(getClass().getResourceAsStream("Wicked.otf"), 10);
+        //Font.loadFont(getClass().getResourceAsStream("Wicked.otf"), 10);
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.setTitle(windowName);
@@ -69,20 +67,18 @@ public class UITools
             catch (IOException e) {
                 e.printStackTrace();
             }
-            Font.loadFont(getClass().getResourceAsStream("Wicked.otf"), 10);
-            root.getStylesheets().add(getClass().getResource("stylesheet.css").toExternalForm());
+            //Font.loadFont(getClass().getResourceAsStream("Wicked.otf"), 10);
+            //root.getStylesheets().add(getClass().getResource("stylesheet.css").toExternalForm());
             currentRoot = root;
             Scene scene = new Scene(root);
             if(stage == null){
                 stage = new Stage();
-                stage.setTitle("Drawingo");
-                stage.setScene(scene);
+                stage.setTitle("Java Application")
                 stage.show();
-                stage.setResizable(false);
             }
             stage.setScene(scene);
-            setNickname();
-            if(windowName != "") stage.setTitle(windowName);
+            if(windowName != "") 
+                stage.setTitle(windowName);
         }
 
         /**
@@ -98,18 +94,6 @@ public class UITools
             }
         }
 
-        /**
-         * Sets the current nickname to the label.
-         */
-        private void setNickname(){
-            Map<String, Object> map = loader.getNamespace();
-            Text textNickname = null;
-            textNickname = (Text) map.get("txtNickname");
-            Player user = GameRuntime.get().getGameController().getCurrentPlayer();
-            if(user != null && textNickname != null){
-                textNickname.setText(user.getNickName());
-            }
-        }
         /**
          * Returns the current controller from the FXMLLoader.
          * @return the Controller as an Object. Needs to be cast to the right class.
